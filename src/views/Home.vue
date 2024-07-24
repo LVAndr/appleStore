@@ -1,5 +1,5 @@
 <template>
-  Apple products
+  Home
 </template>
 
 <script setup>

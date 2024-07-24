@@ -5,13 +5,25 @@ body{
   background-color: $bg-color;
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 17px;
-  color: $font-color;
+  color: $black-color;
   font-style: normal;
   font-weight: 400;
   line-height: 1.4;
 }
 
 main{
-  max-width: 600px;
-  margin: auto;
+  max-width: 1200px;
+  margin: auto 15px;
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
+}
+ul{
+  padding: 0;
+  list-style: none;
+}
+.basket-icon{
+  fill: orange;
 }
