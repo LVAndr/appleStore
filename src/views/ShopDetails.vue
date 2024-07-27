@@ -3,7 +3,7 @@
 </script>
 
 <template>
-Product
+Products
 </template>
 
 <style scoped lang="scss">

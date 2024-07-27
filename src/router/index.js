@@ -1,9 +1,6 @@
 import {createRouter, createWebHistory} from "vue-router";
 import DefaultLayout from "../components/DefaultLayout.vue";
 import Home from "../views/Home.vue";
-import Store from "../views/Store.vue";
-import ShopDetails from "../views/ShopDetails.vue";
-import Basket from "../views/Basket.vue";
 
 const routes = [
     {
@@ -18,19 +15,19 @@ const routes = [
             {
                 path: '/store',
                 name: 'store',
-                component: Store
+                component: () => import('../views/Store.vue')
 
             },
             {
                 path: '/shop/:category?',
                 name: 'shopDetails',
-                component: ShopDetails
+                component: () => import('../views/ShopDetails.vue')
 
             },
             {
                 path: '/basket',
                 name: 'basket',
-                component: Basket
+                component: () => import('../views/Basket.vue')
             }
         ]
     }

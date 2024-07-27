@@ -20,9 +20,7 @@ console.log(categoriesObject);
 
 <template>
 <header>
-  <div class="logo">
-    <router-link :to="{name: 'home'}"><img width="20" height="20" src="/src/assets/img/apple.svg" alt=""></router-link>
-  </div>
+    <router-link class="logo" :to="{name: 'home'}"><img width="20" height="20" src="/src/assets/img/apple.svg" alt=""></router-link>
   <div class="navigation-list">
     <router-link class="store-link" :to="{name: 'store'}">Store</router-link>
     <ul class="products-list">
@@ -51,7 +49,7 @@ header{
   font-size: 14px;
   height: 80px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   .logo{
     display: flex;
     align-items: center;
