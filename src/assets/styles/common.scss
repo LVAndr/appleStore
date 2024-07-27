@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&display=swap');
+
+
 html{
   box-sizing: border-box;
 }
@@ -8,7 +10,7 @@ html, body{
 body{
   margin: 0;
   background-color: $bg-color;
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 17px;
   color: $black-color;
   font-style: normal;
@@ -28,15 +30,16 @@ ul{
   fill: orange;
 }
 #app{
+  max-width: 1200px;
+  min-height: 100%;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  min-height: 100%;
 }
 header{
 
 }
 main{
   flex-grow: 1;
-  max-width: 1200px;
   margin: auto 15px;
 }
