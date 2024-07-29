@@ -1,8 +1,12 @@
-import {defineProps, ref} from "vue";
+import {defineStore} from "pinia";
+import {ref} from "vue";
 
-export const useProductStore = defineProps('productStore', ()=>{
-    const products = ref([
-        { 'Mac': [
+export const useProductStore =
+    defineStore('productStore', ()=>{
+    const productsObj = ref([
+        { category:'Mac',
+          path: 'Mac',
+          products: [
                 // iMac Models
                 {
                     model: 'iMac 24-inch with Apple M1',
@@ -530,7 +534,9 @@ export const useProductStore = defineProps('productStore', ()=>{
                     ]
                 }
             ] },
-        { 'iPhone': [
+        { category: 'iPhone',
+          path: 'iPhone',
+          products: [
                 {
                     model: 'iPhone 15 Pro Max',
                     OS: 'IOS',
@@ -1408,123 +1414,43 @@ export const useProductStore = defineProps('productStore', ()=>{
                     ]
                 }
             ] },
-        { 'iPad': [] },
-        { 'Apple Watch': [] },
-        { 'Apple Vision Pro': [] },
-        { 'AirPods': [] },
-        { 'AirTag': [] },
-        { 'Apple TV 4K': [] },
-        { 'HomePod': [] },
-        { 'Accessories': [
-                {
-                    type: 'Case',
-                    model: 'iPhone 15 Pro Max Case',
-                    compatibility: ['iPhone 15 Pro Max'],
-                    material: 'Silicone',
-                    colors: [
-                        { name: 'Black', value: '#1C1C1E' },
-                        { name: 'Blue', value: '#4A90E2' },
-                        { name: 'Red', value: '#FF3B30' }
-                    ],
-                    basePrice: 49,
-                    variations: [
-                        {
-                            id: 4010,
-                            count: 30,
-                            color: { name: 'Black', value: '#1C1C1E' },
-                            basePrice: 49
-                        },
-                        {
-                            id: 4011,
-                            count: 20,
-                            color: { name: 'Blue', value: '#4A90E2' },
-                            basePrice: 49
-                        },
-                        {
-                            id: 4012,
-                            count: 15,
-                            color: { name: 'Red', value: '#FF3B30' },
-                            basePrice: 49
-                        }
-                    ]
-                },
-                {
-                    type: 'Case',
-                    model: 'iPhone 15 Pro Case',
-                    compatibility: ['iPhone 15 Pro'],
-                    material: 'Leather',
-                    colors: [
-                        { name: 'Brown', value: '#D2691E' },
-                        { name: 'Black', value: '#1C1C1E' },
-                        { name: 'Green', value: '#34C759' }
-                    ],
-                    basePrice: 59,
-                    variations: [
-                        {
-                            id: 4020,
-                            count: 25,
-                            color: { name: 'Brown', value: '#D2691E' },
-                            basePrice: 59
-                        },
-                        {
-                            id: 4021,
-                            count: 18,
-                            color: { name: 'Black', value: '#1C1C1E' },
-                            basePrice: 59
-                        },
-                        {
-                            id: 4022,
-                            count: 12,
-                            color: { name: 'Green', value: '#34C759' },
-                            basePrice: 59
-                        }
-                    ]
-                },
-                {
-                    type: 'Charger',
-                    model: 'USB-C Charger 20W',
-                    compatibility: ['iPhone', 'iPad', 'MacBook'],
-                    power: 20,
-                    basePrice: 29,
-                    variations: [
-                        {
-                            id: 4030,
-                            count: 50,
-                            basePrice: 29
-                        }
-                    ]
-                },
-                {
-                    type: 'Cable',
-                    model: 'USB-C to Lightning Cable',
-                    compatibility: ['iPhone', 'iPad'],
-                    length: '1m',
-                    basePrice: 19,
-                    variations: [
-                        {
-                            id: 4040,
-                            count: 60,
-                            basePrice: 19
-                        }
-                    ]
-                },
-                {
-                    type: 'Adapter',
-                    model: 'USB-C to USB Adapter',
-                    compatibility: ['MacBook'],
-                    basePrice: 19,
-                    variations: [
-                        {
-                            id: 4050,
-                            count: 40,
-                            basePrice: 19
-                        }
-                    ]
-                }
-            ]
+        { category: 'iPad',
+          path: 'iPad',
+          products: []
+        },
+        { category: 'Apple Watch',
+            path: 'AppleWatch',
+            products: []
+        },
+        { category: 'Apple Vision Pro',
+          path: 'AppleVisionPro',
+          products: []
+        },
+        { category: 'AirPods',
+          path: 'AirPods',
+          products: []
+        },
+        { category: 'AirTag',
+          path: 'AirTag',
+          products: []
+        },
+        { category: 'Apple TV 4K',
+          path: 'AppleTV4K',
+          products: []
+        },
+        {
+          category: 'HomePod',
+          path: 'HomePod',
+          products:[]
+        },
+        {
+            category: 'Accessories',
+            path: 'Accessories',
+            products: []
         }
-    ])
+    ]);
+
     return {
-        products
+        productsObj
     }
 })

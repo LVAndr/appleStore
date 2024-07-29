@@ -4,6 +4,19 @@
 html{
   box-sizing: border-box;
 }
+*, *::before, *::after{
+  box-sizing: inherit;
+}
+::-webkit-scrollbar{
+  width: 6px;
+}
+::-webkit-scrollbar-thumb{
+  background-color: rgba(22, 22, 23, 0.8);
+  border-radius: 1px;
+}
+::-webkit-scrollbar-track{
+  background-color: #fafafa;
+}
 html, body{
   height: 100%;
 }
@@ -22,9 +35,15 @@ a{
   text-decoration: none;
   color: inherit;
 }
+button{
+  cursor: pointer;
+}
 ul{
   padding: 0;
   list-style: none;
+}
+h1, h2, h3, h4, h5, h6{
+  margin: 0;
 }
 .basket-icon{
   fill: orange;

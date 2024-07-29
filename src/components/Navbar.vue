@@ -1,36 +1,47 @@
 <script setup>
-import {useRoute} from "vue-router";
+import { ref, onMounted } from 'vue';
+import { useProductStore } from "../store/productStore.js";
 
-let categories = [
-  'Mac', 'iPhone', 'iPad', 'Apple Watch', 'Apple Vision Pro',
-  'AirPods', 'AirTag', 'Apple TV 4K', 'HomePod', 'Accessories'
-];
+const productStore = useProductStore();
+const categoriesLinks = ref([]);
 
-const categoriesObject = categories.reduce((acc, category) => {
-  // Формуємо ключ без пробілів
-  const key = category.replace(/\s/g, '');
-  // Додаємо у об'єкт з ключем і значенням
-  acc[key] = category;
-  return acc;
-}, {});
-console.log(categoriesObject);
+const getCategoriesObj = (products) => {
+  const links = [];
+  for (let i = 0; i < products.length; i++) {
+    let categoryLink = {};
+    categoryLink.key = products[i].category;
+    categoryLink.value = products[i].path;
+    links.push(categoryLink);
+  }
+  return links;
+}
 
+onMounted(() => {
+  categoriesLinks.value = getCategoriesObj(productStore.productsObj);
+});
 
+const activeCategoryLink = ref('');
+
+const setActiveCategoryLink = (category) => {
+  activeCategoryLink.value = category;
+};
 </script>
 
 <template>
 <header>
     <router-link class="logo" :to="{name: 'home'}"><img width="20" height="20" src="/src/assets/img/apple.svg" alt=""></router-link>
   <div class="navigation-list">
-    <router-link class="store-link" :to="{name: 'store'}">Store</router-link>
+    <router-link
+        class="store-link" :to="{name: 'store'}">Store</router-link>
     <ul class="products-list">
       <li
           class="product-link"
-          v-for="[key, category] in Object.entries(categoriesObject)" :key="category">
+          v-for="categoryLink in categoriesLinks" :key="categoryLink.key">
         <router-link
             class="links"
-            :to="{name: 'shopDetails', params: {category: key}}"
-        >{{category}}</router-link>
+            :to="{ name: 'shopDetails', params: { category: categoryLink.value } }"
+            @click="setActiveCategoryLink(categoryLink.value)"
+        >{{categoryLink.key}}</router-link>
       </li>
     </ul>
   </div>
