@@ -14,7 +14,6 @@ export const useProductStore =
                     screenSize: 24,
                     CPU: 'Apple M1',
                     RAM: 8,
-                    storage: [256, 512, 1024],
                     connectors: 'USB-C',
                     variations: [
                         {

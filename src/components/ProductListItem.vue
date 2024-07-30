@@ -1,22 +1,31 @@
 <script setup>
+import Button from "./Button.vue";
+
 const props = defineProps({
-  products: {
-    type: Object,
+  productTitle: {
+    type: String,
     required: true,
-    default: ()=>{}
+  },
+  productPrice: {
+    type: Number,
+    required: true,
+  },
+  productColor: {
+    type: String,
+    required: true,
   }
 })
 </script>
 
 <template>
 <li class="products-list-item">
-  <h2 class="products-list-item-title">Iphone 15 Pro</h2>
+  <h2 class="products-list-item-title">{{productTitle}}</h2>
   <img class="products-list-item-img" src="../assets/img/iphone15pro.png" alt="">
   <div class="products-list-item-colors">
-    <div class="products-list-item-color">Pink</div>
+    <div class="products-list-item-color">{{productColor}}</div>
   </div>
-  <p class="products-list-item-price">1000 $</p>
-  <button class="products-list-item-btn">Buy</button>
+  <p class="products-list-item-price">{{productPrice}} $</p>
+  <Button class="products-list-item-btn"/>
 </li>
 </template>
 
